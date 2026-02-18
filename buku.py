@@ -12,18 +12,6 @@ class buku:
         print(f"status: {self.status}")
         print("-" * 25)
 
-class petugas:
-    def __init__(self, id_petugas, nama, shift):
-        self.id_petugas = id_petugas
-        self.nama = nama
-        self.shift = shift
-
-    def tambah_buku(self, judul_buku):
-        print(f"{self.nama} menambahkan buku {judul_buku} ke dalam perpustakaan.")
-
-    def tampilkan_info_petugas(self):
-        print(f"ID: {self.id_petugas} | nama: {self.nama} | shift: {self.shift}")
-
 class anggota:
     def __init__(self, nama, NIM, Semester):
         self.nama = nama
@@ -60,4 +48,5 @@ class perpustakaan:
         print("nama perpustakaan :", self.nama_pustaka)
         print("=" * 30)
         for buku in self.daftar_buku: buku.tampilkan_info()
+
 

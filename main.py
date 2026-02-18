@@ -11,6 +11,14 @@ buku2 = buku("Dasar Pemrograman Python", "Jubilee Enterprise",3)
 perpus_uin.tambah_buku(buku1)
 perpus_uin.tambah_buku(buku2)
 
+# membuat objek petugas
+petugas_perpus = petugas("001", "zaki", "pagi")
+petugas_perpus2 = petugas("002", "siti", "siang")
+petugas_perpus.tampilkan_info_petugas()
+petugas_perpus2.tampilkan_info_petugas()
+petugas_perpus.tambah_buku("kalkulus 2")
+petugas_perpus2.tambah_buku("algoritma dan pemrograman")
+
 # membuat objek anggota 
 anggota_1 = anggota("shelfia rahmadani", "12550120335", "semester 2")
 anggota_2 = anggota("siti nurhaliza", "230101003", "semester 4")
@@ -36,4 +44,5 @@ anggota_2.kembalikan_buku()
 # cek status akhir
 print("\n---status akhir buku---")
 perpus_uin.tampilkan_semua_buku()
+
 

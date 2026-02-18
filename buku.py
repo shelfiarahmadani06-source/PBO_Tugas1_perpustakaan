@@ -10,30 +10,32 @@ class buku:
         print(f"Penulis:{self.penulis}")
         print(f"stok: {self.stok}")
         print(f"status: {self.status}")
-        print("-" * 25)
+        print("-" * 30)
 
 class anggota:
-    def __init__(self, nama, NIM, Semester):
+    def __init__(self, nama, NIM, semester):
         self.nama = nama
         self.NIM = NIM
-        self.Semester = Semester
+        self.semester = semester
         self.buku_dipinjam = None
 
     def pinjam_buku(self, buku):
-        if buku.status == "tersedia":
+        if buku.status == "Tersedia" and buku.stok > 0: 
             buku.status = "dipinjam"
+            buku.stok -= 1 
             self.buku_dipinjam = buku
-            print(f"{self.nama} berhasil meminjam {buku.judul}")
-        else:
-            print(f"Maaf, {buku.judul} sedang dipinjam oleh orang lain.")
-
+            print(f"{self.nama} berhasil meminjam buku {buku.judul}")
+        else: 
+            print(f"maaf, buku {buku.judul} sedang tidak tersedia untuk dipinjam saat ini. datang kembali nanti😊")
+    
     def kembalikan_buku(self):
         if self.buku_dipinjam:
             self.buku_dipinjam.status = "tersedia"
-            print(f"{self.nama} berhasil mengembalikan {self.buku_dipinjam.judul}")
+            self.buku_dipinjam.stok += 1
+            print(f"{self.nama} berhasil mengembalikan buku {self.buku_dipinjam.judul}")
             self.buku_dipinjam = None
         else:
-            print("Anda tidak meminjam buku apapun.")
+            print("anda tidak meminjam buku apapun.")
         
 
 class perpustakaan:
@@ -46,7 +48,8 @@ class perpustakaan:
 
     def tampilkan_semua_buku(self):
         print("nama perpustakaan :", self.nama_pustaka)
-        print("=" * 30)
+        print("=" * 40)
         for buku in self.daftar_buku: buku.tampilkan_info()
+
 
 
